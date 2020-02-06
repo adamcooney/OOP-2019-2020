@@ -45,7 +45,7 @@ public class BugZap extends PApplet
 
 	void resetBug()
 	{
-		bugX = random(halfBugWidth, width - halfBugWidth);
+		bugX = halfBugWidth;
 		bugY = 50;
 	}
 
@@ -115,20 +115,12 @@ public class BugZap extends PApplet
 
 	void moveBug()
 	{
-		if ((frameCount % 60) == 0)
+		if(bugX > width + halfBugWidth)
 		{
-			bugX += random(-5, +5);
-			if (bugX < halfBugWidth )
-			{
-			  bugX = halfBugWidth;
-			}
-			
-			if (bugX + halfBugWidth > width)
-			{
-			  bugX = width - halfBugWidth;
-			}
-			bugY ++;
+			resetBug();
 		}
+		
+		bugX += 1;
 	}
 
 	public void draw()
