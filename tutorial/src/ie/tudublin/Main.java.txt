@@ -1,0 +1,39 @@
+//benefit of a package of java - prevents namespace conflicts
+
+package ie.tudublin;
+
+//Changes on the test branch
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		for(int i = 0; i < args.length; i++)
+		{
+			System.out.println(args[i]);
+		}
+		
+		for(String s:args)
+		{
+			System.out.println(s);
+		}
+	}
+}
+
+//git ignore file - always add one when making a repository. it is a  list of stuff you do not want to go into your git repository such as class files
+
+git init - makes a git folder
+git remote add origin - remote connects local repository to git repository
+git pull origin master - pull from origin remote and master branch(adds 3 files from git repository to your folder- README, gitignore, LICENSE)
+git add . - takes all files from current directory and puts them into "staging area" of git, nothing gets committed here so can be done over and over again
+git commit -m "initial version" - stores a commit, can always roll back to how the project was at this point
+git push --s-upstream origin master - takes all changes from directory and pushes it to origin
+git log - 
+git checkout -b test_branch - creates new branch 
+
+git add .
+git commit -m "test stuff"
+git push --set-upstream origin test_branch
+git checkout master
+git checkout test_branch - switches between branches
+git merge test_branch - merges the two branches 
