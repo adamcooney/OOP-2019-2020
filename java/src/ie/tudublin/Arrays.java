@@ -9,7 +9,7 @@ public class Arrays extends PApplet
 
 	//float[] rainFall = new float[12];
 	float[] rainFall = {45, 37, 55, 27, 38, 50, 79, 48, 104, 31, 100, 58};
-	String months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+	String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
 	public void settings()
 	{
@@ -18,7 +18,7 @@ public class Arrays extends PApplet
 
 	public void setup() 
 	{
-		for(int i=0; i<rainFall.length; i++(
+		for(int i=0; i<rainFall.length; i++)
 		{
 			println(months[i] + "\t" + rainFall[i]);
 		}
@@ -32,6 +32,25 @@ public class Arrays extends PApplet
 		{
 			println(s);
 		}
+	}
+	
+	void drawBarChart()
+	{
+		float w = width / (float)rainFall.length;
+		float cGap = 255 / (float)rainFall.length;
+		noStroke();
+		colorMode(HSB);
+		for(int i=0; i<rainFall.length; i++)
+		{
+			float x = i * w;
+			fill(i * cGap, 255, 255);
+			rect(x, height, w, -rainFall[i]);
+		}
+	}
+	
+	void test()
+	{
+		
 	}
 
 	
@@ -52,6 +71,8 @@ public class Arrays extends PApplet
 	public void draw()
 	{	
 		background(0);		
-		colorMode(HSB);	
+		colorMode(HSB);
+
+		drawBarChart();
 	}
 }
